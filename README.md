@@ -49,7 +49,7 @@ LIMIT 10;
 ### 2. Top Paying Skills
 - To identify the skills associated with the top paying Analyst positions, filtered by the number of times they appear in each dataset.
 
-```
+```sql
 WITH top_paying_jobs AS (
     SELECT
         job_id,
@@ -83,7 +83,7 @@ ORDER BY
 
 ### 3. Highest Skill Demand
 - To identify the skill with the highest demand, filtered by the number of times the specific skill was featured in the data.
-```
+```sql
 SELECT 
     skills,
     COUNT(skills_job_dim.job_id) AS demand_count
@@ -105,7 +105,7 @@ LIMIT 5;
 
 ### 4. Top Skill by Salary
 - To focus on the skills listed in the highest salary openings, filtered by highest salarys and the skills associated.
-```
+```sql
 SELECT 
     skills,
     ROUND(AVG(salary_year_avg), 0) as average_salary
@@ -127,7 +127,7 @@ LIMIT 25;
 
 ### 5. Optimal Skills
 - Finally, focusing on the optimal skills for data analysts, filtered and grouped by the highest salaries coupled with the most in-demand skills.
-```
+```sql
 SELECT
     skills_dim.skill_id,
     skills_dim.skills,
